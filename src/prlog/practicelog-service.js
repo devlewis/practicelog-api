@@ -13,12 +13,20 @@ const PracticeLogService = {
       .where("users.user_name", user);
   },
 
-  insertGoal(knex, goal, user_id) {
+  getMostRecentGoal(knex, user) {
+    return knex("goals")
+      .max("goals.id")
+      .where("goals.user_id", user);
+  },
+
+  insertGoal(knex, goal) {
     return knex
       .insert(goal)
       .into("goals")
-      .where("goals.user_id", user_id)
-      .returning("*");
+      .returning("*")
+      .then(row => {
+        return row;
+      });
   },
 
   insertDays(knex, newDays) {
@@ -29,8 +37,31 @@ const PracticeLogService = {
       .then(rows => {
         return rows;
       });
+  },
+
+  getByDayId(knex, dayId) {
+    return knex
+      .select("days.id")
+      .from("days")
+      .where("days.id", dayId);
+  },
+
+  updateDay(knex, id, newDayContent) {
+    return knex("days")
+      .where({ id })
+      .update(newDayContent);
+  },
+
+  getByDayId(knex, id) {
+    console.log("the day id in the service", id);
+    return knex
+      .from("days")
+      .select("*")
+      .where("id", id)
+      .first();
   }
 };
+
 // getAllUserGoals(knex, user) {
 //   return knex
 //     .select("goals.id")
