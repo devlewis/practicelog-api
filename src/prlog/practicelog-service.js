@@ -1,22 +1,31 @@
 const PracticeLogService = {
   insertUser(knex, user) {
-    return knex
-      .insert(user)
-      .into("users")
-      .returning("*");
+    return knex.insert(user).into("users").returning("*");
   },
 
   getUserIdByName(knex, user) {
-    return knex
-      .select("users.id")
-      .from("users")
-      .where("users.user_name", user);
+    return knex.select("users.id").from("users").where("users.user_name", user);
   },
 
-  getMostRecentGoal(knex, user) {
+  getGoalById(knex, goal_id) {
+    return knex
+      .select("*")
+      .from("goals")
+      .where("goals.id", goal_id)
+      .returning("*")
+      .then((row) => {
+        return row;
+      });
+  },
+
+  getMostRecentGoalId(knex, user_id) {
     return knex("goals")
-      .max("goals.id")
-      .where("goals.user_id", user);
+      .max("id")
+      .where("user_id", user_id)
+      .returning("*")
+      .then((row) => {
+        return row;
+      });
   },
 
   insertGoal(knex, goal) {
@@ -24,51 +33,47 @@ const PracticeLogService = {
       .insert(goal)
       .into("goals")
       .returning("*")
-      .then(row => {
+      .then((row) => {
         return row;
       });
   },
 
   insertDays(knex, newDays) {
+    //return knex.raw () INSERT COLUMN("day_date")
     return knex
       .insert(newDays)
       .into("days")
       .returning("*")
-      .then(rows => {
+      .then((rows) => {
         return rows;
       });
   },
 
-  getByDayId(knex, dayId) {
-    return knex
-      .select("days.id")
-      .from("days")
-      .where("days.id", dayId);
+  updateDay(knex, newDayContent, id) {
+    return knex("days").where({ id }).update(newDayContent);
   },
 
-  updateDay(knex, id, newDayContent) {
-    return knex("days")
-      .where({ id })
-      .update(newDayContent);
+  updateGoal(knex, goal, goal_id) {
+    return knex("goals").where("goals.id", goal_id).update(goal);
   },
 
   getByDayId(knex, id) {
     console.log("the day id in the service", id);
-    return knex
-      .from("days")
-      .select("*")
-      .where("id", id)
-      .first();
-  }
-};
+    return knex.from("days").select("*").where("id", id).first();
+  },
 
-// getAllUserGoals(knex, user) {
-//   return knex
-//     .select("goals.id")
-//     .from("goals")
-//     .join("users")
-//     .on("users.id", "goals.user_id")
-//     .where("users.user_name" === user);
-// },
+  getAllGoals(knex, user) {
+    return knex("goals").select("*").where("goals.user_id", user);
+  },
+
+  getAllDays(knex, goalId) {
+    return knex("days")
+      .orderBy("id")
+      .where("days.goal_id", goalId)
+      .returning((rows) => {
+        return rows;
+      });
+  },
+};
 
 module.exports = PracticeLogService;

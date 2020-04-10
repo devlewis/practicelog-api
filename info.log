@@ -110,3 +110,542 @@
 {"message":"days created.","level":"info"}
 {"message":"goal created.","level":"info"}
 {"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"day with id 3 updated. [object Object]","level":"info"}
+{"message":"day with id 4 not found.","level":"error"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal with id undefined updated.","level":"info"}
+{"message":"goal with id undefined retrieved.","level":"info"}
+{"message":"goal with id undefined retrieved.","level":"info"}
+{"message":"goal with id undefined retrieved.","level":"info"}
+{"message":"goal with id undefined retrieved.","level":"info"}
+{"message":"goal_id  [object Object] retrieved.","level":"info"}
+{"message":"goal_id  undefined retrieved.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"all goals for userId retrieved","level":"info"}
+{"message":"all goals for userId retrieved","level":"info"}
+{"message":"all goals for userId retrieved","level":"info"}
+{"message":"all goals for userId retrieved","level":"info"}
+{"message":"all goals for userId retrieved","level":"info"}
+{"message":"all goals for userId retrieved","level":"info"}
+{"message":"all goals for userId retrieved","level":"info"}
+{"message":"all goals for userId retrieved","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"user with id 2 created.","level":"info"}
+{"message":"user with id 3 created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"user with id 4 created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"user with id 1 created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 1 updated.","level":"info"}
+{"message":"day with id 1 updated.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 1 updated.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 1 updated.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 1 updated.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 1 updated.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 1 updated.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 1 updated.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 1 updated.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 4 updated.","level":"info"}
+{"message":"goal with 3 updated.","level":"info"}
+{"message":"goal_id  4 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  2 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 3 updated.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"day with id 11 updated.","level":"info"}
+{"message":"goal_id  5 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  5 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 12 updated.","level":"info"}
+{"message":"goal_id  5 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 13 updated.","level":"info"}
+{"message":"goal_id  5 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  5 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 14 updated.","level":"info"}
+{"message":"goal_id  5 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 15 updated.","level":"info"}
+{"message":"goal_id  5 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 16 updated.","level":"info"}
+{"message":"goal_id  5 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 17 updated.","level":"info"}
+{"message":"goal_id  5 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"day with id 18 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  6 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  6 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 19 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  6 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 20 updated.","level":"info"}
+{"message":"day with id 20 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  6 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 21 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  6 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 22 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 22 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  6 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  6 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 23 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  6 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 24 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"day with id 25 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  7 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 26 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  7 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 27 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  7 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 28 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 28 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  7 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 29 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal with 3 updated.","level":"info"}
+{"message":"day with id 30 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 31 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal with 3 updated.","level":"info"}
+{"message":"goal_id  7 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"day with id 32 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  8 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 33 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal_id  8 retrieved.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"day with id 34 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal with 3 updated.","level":"info"}
