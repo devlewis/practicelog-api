@@ -10,36 +10,6 @@ const PracticeLogService = require("./practicelog-service");
 const practicelogRouter = express.Router();
 const bodyParser = express.json();
 
-const serializeDay = (day) => ({
-  id: day.id,
-  day_num: day.day_num,
-  day_date: new Date(day.day_date).toString().slice(0, 11),
-  completed: day.completed,
-  technique: day.technique,
-  repertoire: day.repertoire,
-  actual_hours: parseFloat(day.actual_hours),
-  touched: day.touched,
-  goal_id: day.goal_id,
-  user_id: day.user_id,
-  goal_hours: parseFloat(day.goal_hours),
-});
-
-const serializeGoal = (goal) => ({
-  id: goal[0].id,
-  user_id: goal[0].user_id,
-  num_of_days: goal[0].num_of_days,
-  total_hours: goal[0].total_hours,
-  hours_goal: goal[0].hours_goal,
-});
-
-const serializeAllGoals = (goal) => ({
-  id: goal.id,
-  user_id: goal.user_id,
-  num_of_days: goal.num_of_days,
-  total_hours: goal.total_hours,
-  hours_goal: goal.hours_goal,
-});
-
 practicelogRouter
   .route("/goal")
   .all(requireAuth)
@@ -107,19 +77,24 @@ practicelogRouter
       .catch((error) => console.log(error));
   })
 
+  // .all(checkGoalExists)
   .get((req, res) => {
     return PracticeLogService.getMostRecentGoalId(
       req.app.get("db"),
       req.user.id
     ).then((goalId) => {
       logger.info(`goal_id  ${goalId[0].max} retrieved.`);
+      console.log(goalId);
       const goal_id = goalId[0].max;
-
-      return PracticeLogService.getGoalById(req.app.get("db"), goal_id).then(
-        (goal) => {
-          return res.status(201).json(serializeGoal(goal));
-        }
-      );
+      if (!goal_id) {
+        return res.status(200).json([]);
+      } else {
+        return PracticeLogService.getGoalById(req.app.get("db"), goal_id).then(
+          (goal) => {
+            return res.status(201).json(serializeGoal(goal));
+          }
+        );
+      }
     });
   });
 
@@ -128,18 +103,19 @@ practicelogRouter
   .all(requireAuth)
   .post(bodyParser, (req, res) => {
     const { num_of_days, total_hours, hours_goal, goal_id } = req.body;
-    console.log(num_of_days);
-    console.log(goal_id);
 
     const goal = {
+      id: goal_id,
       user_id: req.user.id,
       num_of_days: num_of_days,
       total_hours: total_hours,
       hours_goal: hours_goal,
     };
 
+    console.log("goal to update", goal);
+
     return PracticeLogService.updateGoal(req.app.get("db"), goal, goal_id).then(
-      (rows) => {
+      (goal) => {
         logger.info(`goal with ${goal_id} updated.`);
         return res.status(204).end();
       }
@@ -171,6 +147,7 @@ practicelogRouter
       user_id
     ).then(([goal_id]) => {
       const goalId = goal_id.max;
+
       return PracticeLogService.getAllDays(req.app.get("db"), goalId).then(
         (days) => {
           logger.info(`days fetched.`);
@@ -199,9 +176,9 @@ practicelogRouter
   //     .catch(next);
   // })
 
-  .get((req, res) => {
-    res.json(serializeDay(res.day));
-  })
+  // .get((req, res) => {
+  //   res.json(serializeDay(res.day));
+  // })
 
   .post(bodyParser, (req, res, next) => {
     console.log("req.body", req.body);
@@ -226,5 +203,54 @@ practicelogRouter
       })
       .catch(next);
   });
+
+async function checkGoalExists(req, res, next) {
+  try {
+    console.log("went to async");
+    const goal = await PracticeLogService.getMostRecentGoalId(
+      req.app.get("db"),
+      req.user.id
+    );
+
+    if (goal_id === null)
+      return res.status(404).json({
+        error: `goal doesn't exist`,
+      });
+
+    next();
+  } catch (error) {
+    next(error);
+  }
+}
+
+const serializeDay = (day) => ({
+  id: day.id,
+  day_num: day.day_num,
+  day_date: new Date(day.day_date).toString().slice(0, 11),
+  completed: day.completed,
+  technique: day.technique,
+  repertoire: day.repertoire,
+  actual_hours: parseFloat(day.actual_hours),
+  touched: day.touched,
+  goal_id: day.goal_id,
+  user_id: day.user_id,
+  goal_hours: parseFloat(day.goal_hours),
+});
+
+const serializeGoal = (goal) => ({
+  id: goal[0].id,
+  user_id: goal[0].user_id,
+  num_of_days: goal[0].num_of_days,
+  total_hours: parseFloat(goal[0].total_hours),
+  hours_goal: goal[0].hours_goal,
+});
+
+const serializeAllGoals = (goal) => ({
+  id: goal.id,
+  user_id: goal.user_id,
+  num_of_days: goal.num_of_days,
+  total_hours: goal.total_hours,
+  hours_goal: goal.hours_goal,
+});
 
 module.exports = practicelogRouter;
