@@ -58,7 +58,6 @@ const PracticeLogService = {
   },
 
   getByDayId(knex, id) {
-    console.log("the day id in the service", id);
     return knex.from("days").select("*").where("id", id).first();
   },
 

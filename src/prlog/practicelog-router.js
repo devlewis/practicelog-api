@@ -21,7 +21,7 @@ practicelogRouter
       total_hours: total_hours,
       hours_goal: actual_hours,
     };
-    console.log("goal", goal);
+
     for (const [key, value] of Object.entries(goal))
       if (value == null)
         return res.status(400).json({
@@ -112,8 +112,6 @@ practicelogRouter
   .all(requireAuth)
   .put(bodyParser, (req, res) => {
     const { num_of_days, total_hours, hours_goal, goal_id } = req.body;
-    console.log("reached server");
-    console.log(req.body);
     const goal = {
       id: goal_id,
       user_id: req.user.id,
@@ -137,8 +135,6 @@ practicelogRouter
   .get(bodyParser, (req, res) => {
     PracticeLogService.getAllGoals(req.app.get("db"), req.user.id).then(
       (goals) => {
-        logger.info(`all goals for userId retrieved`);
-        //console.log(goals);
         return res.status(201).json(goals.map(serializeAllGoals));
       }
     );
@@ -148,7 +144,6 @@ practicelogRouter
   .route("/alldays")
   .all(requireAuth)
   .get(bodyParser, (req, res) => {
-    //console.log(req.user);
     const user_id = req.user.id;
     return PracticeLogService.getMostRecentGoalId(req.app.get("db"), user_id)
       .then(([goal_id]) => {

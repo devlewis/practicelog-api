@@ -161,9 +161,8 @@ function makeDaysArray(users, goals) {
 
 function makeExpectedGoal(users, goal, days = []) {
   const goal_user = users.find((user) => user.id === goal.user_id);
-  console.log("goal user in makeExpectedGoal", goal_user);
+
   const number_of_days = days.filter((day) => day.goal_id === goal.id).length;
-  console.log("num_of_days", number_of_days);
 
   return {
     id: goal.id,
