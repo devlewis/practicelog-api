@@ -23,6 +23,9 @@ describe("Prlog Endpoints", function () {
 
   describe(`GET /api/prlog/goal`, () => {
     context(`Given no goals`, () => {
+      beforeEach("insert goals", () =>
+        helpers.seedPrlogTables(db, testUsers, testGoals, testDays)
+      );
       it(`responds with 200 and an empty list`, () => {
         return supertest(app)
           .get("/api/prlog/goal")
@@ -36,109 +39,214 @@ describe("Prlog Endpoints", function () {
         helpers.seedPrlogTables(db, testUsers, testGoals, testDays)
       );
 
-      it("responds with 201 and the most recent goal", () => {
-        const expectedGoals = testGoals.map((goal) =>
-          helpers.makeExpectedGoal(testUsers, goal, testDays)
-        );
-        const maxExpectedGoals = [];
-        expectedGoals.forEach((goal) => {
-          if (!maxExpectedGoals[goal.user_id === goal.user_id]) {
-            maxExpectedGoals.push(goal);
-          }
-        });
-
+      it("responds with 201 and the most recent goalId", () => {
+        const maxExpectedGoal = {
+          id: 3,
+          user_id: 3,
+          num_of_days: 100,
+          total_hours: 0,
+          hours_goal: "2.00",
+        };
         return supertest(app)
-          .get("/api/articles")
-          .set("Authorization", helpers.makeAuthHeader(testUsers[0]))
-          .expect(200, maxExpectedGoals);
+          .get("/api/prlog/goal")
+          .set("Authorization", helpers.makeAuthHeader(testUsers[2]))
+          .expect(201, maxExpectedGoal);
       });
     });
   });
 
-  context("Given there are articles in the database", () => {
-    beforeEach("insert articles", () =>
-      helpers.seedArticlesTables(db, testUsers, testArticles, testComments)
+  describe(`POST /api/prlog/goal`, () => {
+    beforeEach("insert days", () =>
+      helpers.seedPrlogTables(db, testUsers, testGoals, testDays)
     );
 
-    it("responds with 200 and the specified article", () => {
-      const articleId = 2;
-      const expectedArticle = helpers.makeExpectedArticle(
-        testUsers,
-        testArticles[articleId - 1],
-        testComments
-      );
+    it(`creates an array of new days, each with new goal_id, 
+    responding with 201 and the array`, function () {
+      this.retries(3);
+      const testGoal = testGoals[0];
+      const testUser = testUsers[0];
+      const newDays = {
+        num_of_days: 3,
+        actual_hours: 2,
+        user_id: testUser.id,
+        total_hours: 0,
+      };
 
       return supertest(app)
-        .get(`/api/articles/${articleId}`)
+        .post("/api/prlog/goal")
         .set("Authorization", helpers.makeAuthHeader(testUsers[0]))
-        .expect(200, expectedArticle);
+        .send(newDays)
+        .expect(201)
+        .expect((res) => {
+          expect(res.body[0]).to.have.property("id");
+          expect(res.body.length).to.eql(3);
+          expect(res.body[1].goal_id).to.eql(5);
+
+          // const expectedDate = new Date().toLocaleString("en", {
+          //   timeZone: "UTC",
+          // });
+          // const actualDate = new Date(res.body[0].day_date).toLocaleString();
+          // expect(actualDate).to.eql(expectedDate);
+        })
+        .expect((res) =>
+          db
+            .from("days")
+            .select("*")
+            .where({ id: res.body[0].id })
+            .first()
+            .then((row) => {
+              expect(row.goal_id).to.eql(5);
+              expect(row.user_id).to.eql(testUser.id);
+              // const expectedDate = new Date().toLocaleString("en", {
+              //   timeZone: "UTC",
+              // });
+              // const actualDate = new Date(row.day_date).toLocaleString();
+              // expect(actualDate).to.eql(expectedDate);
+            })
+        );
     });
   });
 
-  //     context(`Given an XSS attack article`, () => {
-  //       const testUser = helpers.makeUsersArray()[1]
-  //       const {
-  //         maliciousArticle,
-  //         expectedArticle,
-  //       } = helpers.makeMaliciousArticle(testUser)
+  describe(`POST /api/prlog/updategoal`, () => {
+    beforeEach("insert days", () =>
+      helpers.seedPrlogTables(db, testUsers, testGoals, testDays)
+    );
 
-  //       beforeEach('insert malicious article', () => {
-  //         return helpers.seedMaliciousArticle(
-  //           db,
-  //           testUser,
-  //           maliciousArticle,
-  //         )
-  //       })
+    it(`responds with 204`, function () {
+      this.retries(3);
+      const testUser = testUsers[0];
 
-  //       it('removes XSS attack content', () => {
-  //         return supertest(app)
-  //           .get(`/api/articles/${maliciousArticle.id}`)
-  //           .set('Authorization', helpers.makeAuthHeader(testUser))
-  //           .expect(200)
-  //           .expect(res => {
-  //             expect(res.body.title).to.eql(expectedArticle.title)
-  //             expect(res.body.content).to.eql(expectedArticle.content)
-  //           })
-  //       })
-  //     })
-  //   })
+      const updatedGoal = {
+        goal_id: 1,
+        num_of_days: 3,
+        actual_hours: 2,
+        user_id: testUser.id,
+        total_hours: 0,
+      };
 
-  //   describe(`GET /api/articles/:article_id/comments`, () => {
-  //     context(`Given no articles`, () => {
-  //       beforeEach(() =>
-  //         helpers.seedUsers(db, testUsers)
-  //       )
+      return supertest(app)
+        .post("/api/prlog/updategoal")
+        .set("Authorization", helpers.makeAuthHeader(testUsers[0]))
+        .send(updatedGoal)
+        .expect(204);
+    });
+  });
 
-  //       it(`responds with 404`, () => {
-  //         const articleId = 123456
-  //         return supertest(app)
-  //           .get(`/api/articles/${articleId}/comments`)
-  //           .set('Authorization', helpers.makeAuthHeader(testUsers[0]))
-  //           .expect(404, { error: `Article doesn't exist` })
-  //       })
-  //     })
+  describe(`GET /api/prlog/alldays`, () => {
+    beforeEach("insert days", () =>
+      helpers.seedPrlogTables(db, testUsers, testGoals, testDays)
+    );
+    it("responds with 201 and an array of days", () => {
+      const testUser = testUsers[1];
 
-  //     context('Given there are comments for article in the database', () => {
-  //       beforeEach('insert articles', () =>
-  //         helpers.seedArticlesTables(
-  //           db,
-  //           testUsers,
-  //           testArticles,
-  //           testComments,
-  //         )
-  //       )
+      return supertest(app)
+        .get("/api/prlog/alldays")
+        .set("Authorization", helpers.makeAuthHeader(testUsers[1]))
+        .expect(201)
+        .expect((res) => {
+          expect(res.body[0]).to.have.property("id");
+          expect(res.body.length).to.eql(2);
+          expect(res.body[1].goal_id).to.eql(2);
 
-  //       it('responds with 200 and the specified comments', () => {
-  //         const articleId = 1
-  //         const expectedComments = helpers.makeExpectedArticleComments(
-  //           testUsers, articleId, testComments
-  //         )
+          // const expectedDate = new Date().toLocaleString("en", {
+          //   timeZone: "UTC",
+          // });
+          // const actualDate = new Date(res.body[0].day_date).toLocaleString();
+          // expect(actualDate).to.eql(expectedDate);
+        })
+        .expect((res) =>
+          db
+            .from("days")
+            .select("*")
+            .where({ id: res.body[0].id })
+            .first()
+            .then((row) => {
+              expect(row.goal_id).to.eql(2);
+              expect(row.user_id).to.eql(testUser.id);
+              // const expectedDate = new Date().toLocaleString("en", {
+              //   timeZone: "UTC",
+              // });
+              // const actualDate = new Date(row.day_date).toLocaleString();
+              // expect(actualDate).to.eql(expectedDate);
+            })
+        );
+    });
+  });
 
-  //         return supertest(app)
-  //           .get(`/api/articles/${articleId}/comments`)
-  //           .set('Authorization', helpers.makeAuthHeader(testUsers[0]))
-  //           .expect(200, expectedComments)
-  //       })
-  //     })
-  //   })
+  describe(`POST /api/prlog/days`, () => {
+    beforeEach("insert days", () =>
+      helpers.seedPrlogTables(db, testUsers, testGoals, testDays)
+    );
+
+    it(`responds with 204`, function () {
+      this.retries(3);
+      const testUser = testUsers[1];
+      const dayToUpdate = {
+        id: 1,
+        day_num: 1,
+        day_date: new Date("2029-01-22T16:28:32.615Z"),
+        completed: "true",
+        technique: "",
+        repertoire: "",
+        actual_hours: 5,
+        touched: true,
+        goal_id: 1,
+        user_id: testUser.id,
+        goal_hours: 3,
+      };
+
+      return supertest(app)
+        .post("/api/prlog/updategoal")
+        .set("Authorization", helpers.makeAuthHeader(testUsers[1]))
+        .send(dayToUpdate)
+        .expect(204);
+    });
+  });
+
+  describe(`GET /api/prlog/alldays`, () => {
+    beforeEach("insert days", () =>
+      helpers.seedPrlogTables(db, testUsers, testGoals, testDays)
+    );
+
+    it(`returns an array of days,
+    responding with 201 and the array`, function () {
+      this.retries(3);
+      const testUser = testUsers[1];
+
+      return supertest(app)
+        .get("/api/prlog/alldays")
+        .set("Authorization", helpers.makeAuthHeader(testUser))
+        .expect(201)
+        .expect((res) => {
+          expect(res.body[0]).to.have.property("id");
+          expect(res.body.length).to.eql(2);
+          expect(res.body[1].goal_id).to.eql(2);
+          // console.log(new Date(res.body[0].day_date));
+          // const expectedDate = new Date(
+          //   "2029-01-22T16:28:32.615Z"
+          // ).toLocaleString("en", {
+          //   timeZone: "UTC",
+          // });
+          // const actualDate = new Date(res.body[0].day_date).toLocaleString();
+          // expect(actualDate).to.eql(expectedDate);
+        })
+        .expect((res) =>
+          db
+            .from("days")
+            .select("*")
+            .where({ id: res.body[0].id })
+            .first()
+            .then((row) => {
+              expect(row.goal_id).to.eql(2);
+              expect(row.user_id).to.eql(testUser.id);
+              // const expectedDate = new Date().toLocaleString("en", {
+              //   timeZone: "UTC",
+              // });
+
+              // const actualDate = new Date(row.day_date).toLocaleString();
+              // expect(actualDate).to.eql(expectedDate);
+            })
+        );
+    });
+  });
 });

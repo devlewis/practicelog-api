@@ -21,6 +21,17 @@ practicelogRouter
       total_hours: total_hours,
       hours_goal: actual_hours,
     };
+    console.log("goal", goal);
+    for (const [key, value] of Object.entries(goal))
+      if (value == null)
+        return res.status(400).json({
+          error: `Missing '${key}' in request body`,
+        });
+      else if (goal.hours_goal < 0 || goal.hours_goal > 24) {
+        return res
+          .status(400)
+          .json({ error: `Please enter a number between 0 and 24` });
+      }
     return PracticeLogService.insertGoal(req.app.get("db"), goal)
       .then((goal) => {
         logger.info(`goal created.`);
@@ -55,9 +66,9 @@ practicelogRouter
         let newDays = makeDays(num_of_days, actual_hours, goalid, userid);
 
         if (!actual_hours || !num_of_days || !goalid || !userid) {
-          logger.error(`actual_hours and num_of_days are required`);
+          logger.error(`hours and number of days are required`);
           return res.status(400).send({
-            error: { message: `actual_hours and num_of_days are required` },
+            error: { message: `hours and number of days are required` },
           });
         }
 
@@ -68,8 +79,6 @@ practicelogRouter
         )
           .then((newDays) => {
             logger.info(`days created.`);
-            //console.log("newDays", newDays);
-            //console.log("newDays serialized", newDays.map(serializeDay));
             res.status(201).json(newDays.map(serializeDay));
           })
           .catch((error) => console.log(error));
@@ -77,25 +86,25 @@ practicelogRouter
       .catch((error) => console.log(error));
   })
 
-  // .all(checkGoalExists)
   .get((req, res) => {
     return PracticeLogService.getMostRecentGoalId(
       req.app.get("db"),
       req.user.id
-    ).then((goalId) => {
-      logger.info(`goal_id  ${goalId[0].max} retrieved.`);
-      console.log(goalId);
-      const goal_id = goalId[0].max;
-      if (!goal_id) {
-        return res.status(200).json([]);
-      } else {
-        return PracticeLogService.getGoalById(req.app.get("db"), goal_id).then(
-          (goal) => {
-            return res.status(201).json(serializeGoal(goal));
-          }
-        );
-      }
-    });
+    )
+      .then((goalId) => {
+        logger.info(`goal_id  ${goalId[0].max} retrieved.`);
+        const goal_id = goalId[0].max;
+        if (!goal_id) {
+          return res.status(200).json([]);
+        } else {
+          return PracticeLogService.getGoalById(req.app.get("db"), goal_id)
+            .then((goal) => {
+              return res.status(201).json(serializeGoal(goal));
+            })
+            .catch((error) => console.log(error));
+        }
+      })
+      .catch((error) => console.log(error));
   });
 
 practicelogRouter
@@ -103,7 +112,8 @@ practicelogRouter
   .all(requireAuth)
   .post(bodyParser, (req, res) => {
     const { num_of_days, total_hours, hours_goal, goal_id } = req.body;
-
+    console.log("reached server");
+    console.log(req.body);
     const goal = {
       id: goal_id,
       user_id: req.user.id,
@@ -112,14 +122,12 @@ practicelogRouter
       hours_goal: hours_goal,
     };
 
-    console.log("goal to update", goal);
-
-    return PracticeLogService.updateGoal(req.app.get("db"), goal, goal_id).then(
-      (goal) => {
+    return PracticeLogService.updateGoal(req.app.get("db"), goal, goal_id)
+      .then((goal) => {
         logger.info(`goal with ${goal_id} updated.`);
         return res.status(204).end();
-      }
-    );
+      })
+      .catch((error) => console.log(error));
   });
 
 practicelogRouter
@@ -142,19 +150,18 @@ practicelogRouter
   .get(bodyParser, (req, res) => {
     //console.log(req.user);
     const user_id = req.user.id;
-    return PracticeLogService.getMostRecentGoalId(
-      req.app.get("db"),
-      user_id
-    ).then(([goal_id]) => {
-      const goalId = goal_id.max;
-
-      return PracticeLogService.getAllDays(req.app.get("db"), goalId).then(
-        (days) => {
-          logger.info(`days fetched.`);
-          res.status(201).json(days.map(serializeDay));
-        }
-      );
-    });
+    return PracticeLogService.getMostRecentGoalId(req.app.get("db"), user_id)
+      .then(([goal_id]) => {
+        const goalId = goal_id.max;
+        if (goalId == null) return res.status(400).json({ error: `No goalId` });
+        return PracticeLogService.getAllDays(req.app.get("db"), goalId)
+          .then((days) => {
+            logger.info(`days fetched.`);
+            res.status(201).json(days.map(serializeDay));
+          })
+          .catch((error) => console.log(error));
+      })
+      .catch((error) => console.log(error));
   });
 
 practicelogRouter
@@ -181,10 +188,7 @@ practicelogRouter
   // })
 
   .post(bodyParser, (req, res, next) => {
-    console.log("req.body", req.body);
-    const { dayId, dayToUpdate } = req.body;
-    console.log("dayId", dayId);
-    console.log("dayToUpdate", dayToUpdate);
+    const { dayToUpdate } = req.body;
 
     const numberOfValues = Object.values(dayToUpdate).filter(Boolean).length;
     if (numberOfValues === 0) {
@@ -196,7 +200,11 @@ practicelogRouter
       });
     }
 
-    return PracticeLogService.updateDay(req.app.get("db"), dayToUpdate, dayId)
+    return PracticeLogService.updateDay(
+      req.app.get("db"),
+      dayToUpdate,
+      dayToUpdate.id
+    )
       .then((rows) => {
         logger.info(`day with id ${dayId} updated.`);
         res.status(204).end();
@@ -204,24 +212,24 @@ practicelogRouter
       .catch(next);
   });
 
-async function checkGoalExists(req, res, next) {
-  try {
-    console.log("went to async");
-    const goal = await PracticeLogService.getMostRecentGoalId(
-      req.app.get("db"),
-      req.user.id
-    );
+// async function checkGoalExists(req, res, next) {
+//   try {
+//     console.log("went to async");
+//     const goal = await PracticeLogService.getMostRecentGoalId(
+//       req.app.get("db"),
+//       req.user.id
+//     );
 
-    if (goal_id === null)
-      return res.status(404).json({
-        error: `goal doesn't exist`,
-      });
+//     if (goal_id === null)
+//       return res.status(404).json({
+//         error: `goal doesn't exist`,
+//       });
 
-    next();
-  } catch (error) {
-    next(error);
-  }
-}
+//     next();
+//   } catch (error) {
+//     next(error);
+//   }
+// }
 
 const serializeDay = (day) => ({
   id: day.id,

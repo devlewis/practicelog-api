@@ -75,7 +75,7 @@ function makeDaysArray(users, goals) {
       actual_hours: 0,
       touched: false,
       goal_id: goals[0].id,
-      user_id: users[0].id,
+      user_id: users[1].id,
       goal_hours: 3,
     },
     {
@@ -88,7 +88,7 @@ function makeDaysArray(users, goals) {
       actual_hours: 0,
       touched: false,
       goal_id: goals[0].id,
-      user_id: users[0].id,
+      user_id: users[1].id,
       goal_hours: 3,
     },
     {
@@ -101,7 +101,7 @@ function makeDaysArray(users, goals) {
       actual_hours: 3,
       touched: true,
       goal_id: goals[1].id,
-      user_id: users[0].id,
+      user_id: users[1].id,
       goal_hours: 4,
     },
     {
@@ -114,7 +114,7 @@ function makeDaysArray(users, goals) {
       actual_hours: 3,
       touched: true,
       goal_id: goals[1].id,
-      user_id: users[0].id,
+      user_id: users[1].id,
       goal_hours: 4,
     },
     {
@@ -127,7 +127,7 @@ function makeDaysArray(users, goals) {
       actual_hours: 3,
       touched: true,
       goal_id: goals[0].id,
-      user_id: users[1].id,
+      user_id: users[2].id,
       goal_hours: 5,
     },
     {
@@ -140,7 +140,7 @@ function makeDaysArray(users, goals) {
       actual_hours: 4,
       touched: true,
       goal_id: goals[0].id,
-      user_id: users[1].id,
+      user_id: users[2].id,
       goal_hours: 5,
     },
     {
@@ -153,7 +153,7 @@ function makeDaysArray(users, goals) {
       actual_hours: 0,
       touched: false,
       goal_id: goals[0].id,
-      user_id: users[1].id,
+      user_id: users[2].id,
       goal_hours: 5,
     },
   ];
@@ -161,9 +161,9 @@ function makeDaysArray(users, goals) {
 
 function makeExpectedGoal(users, goal, days = []) {
   const goal_user = users.find((user) => user.id === goal.user_id);
-  console.log(goal_user);
+  console.log("goal user in makeExpectedGoal", goal_user);
   const number_of_days = days.filter((day) => day.goal_id === goal.id).length;
-  console.log(number_of_days);
+  console.log("num_of_days", number_of_days);
 
   return {
     id: goal.id,
@@ -173,7 +173,7 @@ function makeExpectedGoal(users, goal, days = []) {
     hours_goal: 3,
   };
 }
-}
+
 function makePrlogFixtures() {
   const testUsers = makeUsersArray();
   const testGoals = makeGoalsArray(testUsers);

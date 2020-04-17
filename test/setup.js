@@ -1,7 +1,7 @@
 process.env.TZ = "UCT";
 process.env.NODE_ENV = "test";
 process.env.JWT_SECRET = "secret";
-process.env.JWT_EXPIRY = "3m";
+process.env.JWT_EXPIRY = "20s";
 
 require("dotenv").config();
 
