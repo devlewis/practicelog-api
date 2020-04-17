@@ -4,8 +4,6 @@ const xss = require("xss");
 const { requireAuth } = require("../middleware/jwt-auth");
 const logger = require("../logger");
 const PracticeLogService = require("./practicelog-service");
-//const makeDays = require("../STORE");
-//const { getNoteValidationError } = require("./note-validator");
 
 const practicelogRouter = express.Router();
 const bodyParser = express.json();
@@ -42,13 +40,13 @@ practicelogRouter
 
         function makeDays(num_of_days, actual_hours, goalid, userid) {
           const newDays = [];
-          for (let i = 1; i <= num_of_days; i++) {
+          for (let i = 0; i <= num_of_days; i++) {
             const date = new Date();
             const updatedDate = date.setDate(date.getDate() + i);
             const realDate = new Date(updatedDate).toISOString();
 
             newDays.push({
-              day_num: i,
+              day_num: i + 1,
               day_date: realDate,
               completed: "false",
               technique: "",
