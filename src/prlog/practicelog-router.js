@@ -110,7 +110,7 @@ practicelogRouter
 practicelogRouter
   .route("/updategoal")
   .all(requireAuth)
-  .post(bodyParser, (req, res) => {
+  .put(bodyParser, (req, res) => {
     const { num_of_days, total_hours, hours_goal, goal_id } = req.body;
     console.log("reached server");
     console.log(req.body);
@@ -187,7 +187,7 @@ practicelogRouter
   //   res.json(serializeDay(res.day));
   // })
 
-  .post(bodyParser, (req, res, next) => {
+  .put(bodyParser, (req, res, next) => {
     const { dayToUpdate } = req.body;
 
     const numberOfValues = Object.values(dayToUpdate).filter(Boolean).length;
@@ -206,7 +206,7 @@ practicelogRouter
       dayToUpdate.id
     )
       .then((rows) => {
-        logger.info(`day with id ${dayId} updated.`);
+        logger.info(`day with id ${dayToUpdate.id} updated.`);
         res.status(204).end();
       })
       .catch(next);

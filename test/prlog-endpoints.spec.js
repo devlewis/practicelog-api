@@ -107,7 +107,7 @@ describe("Prlog Endpoints", function () {
     });
   });
 
-  describe(`POST /api/prlog/updategoal`, () => {
+  describe(`PUT /api/prlog/updategoal`, () => {
     beforeEach("insert days", () =>
       helpers.seedPrlogTables(db, testUsers, testGoals, testDays)
     );
@@ -125,7 +125,7 @@ describe("Prlog Endpoints", function () {
       };
 
       return supertest(app)
-        .post("/api/prlog/updategoal")
+        .put("/api/prlog/updategoal")
         .set("Authorization", helpers.makeAuthHeader(testUsers[0]))
         .send(updatedGoal)
         .expect(204);
@@ -173,7 +173,7 @@ describe("Prlog Endpoints", function () {
     });
   });
 
-  describe(`POST /api/prlog/days`, () => {
+  describe(`PUT /api/prlog/days`, () => {
     beforeEach("insert days", () =>
       helpers.seedPrlogTables(db, testUsers, testGoals, testDays)
     );
@@ -196,7 +196,7 @@ describe("Prlog Endpoints", function () {
       };
 
       return supertest(app)
-        .post("/api/prlog/updategoal")
+        .put("/api/prlog/updategoal")
         .set("Authorization", helpers.makeAuthHeader(testUsers[1]))
         .send(dayToUpdate)
         .expect(204);
