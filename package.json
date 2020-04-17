@@ -5,7 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "test": "mocha --require test/setup.js",
-    "start": "node server.js",
+    "start": "node src/server.js",
     "dev": "nodemon server.js",
     "migrate": "postgrator --config postgrator-config.js"
   },
