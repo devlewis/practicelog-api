@@ -9,7 +9,7 @@ const { NODE_ENV } = require("./config");
 const authRouter = require("./auth/auth-router");
 const practicelogRouter = require("./prlog/practicelog-router");
 const usersRouter = require("./users/users-router");
-
+const { CLIENT_ORIGIN } = require("./config");
 const app = express();
 
 app.use(
@@ -17,7 +17,7 @@ app.use(
     skip: () => NODE_ENV === "test",
   })
 );
-app.use(cors());
+app.use(cors({ origin: CLIENT_ORIGIN }));
 app.use(helmet());
 
 app.use("/api/prlog", practicelogRouter);

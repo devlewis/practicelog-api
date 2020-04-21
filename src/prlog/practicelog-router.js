@@ -40,7 +40,7 @@ practicelogRouter
 
         function makeDays(num_of_days, actual_hours, goalid, userid) {
           const newDays = [];
-          for (let i = 0; i <= num_of_days; i++) {
+          for (let i = 0; i < num_of_days; i++) {
             const date = new Date();
             const updatedDate = date.setDate(date.getDate() + i);
             const realDate = new Date(updatedDate).toISOString();
@@ -160,28 +160,14 @@ practicelogRouter
 practicelogRouter
   .route("/days")
   .all(requireAuth)
-  // .all(bodyParser, (req, res, next) => {
-  //   const { dayId } = req.body;
-  //   PracticeLogService.getByDayId(req.app.get("db"), parseInt(dayId))
-  //     .then((day) => {
-  //       if (!day) {
-  //         logger.error(`day with id ${dayId} not found.`);
-  //         return res.status(404).json({
-  //           error: { message: `day Not Found` },
-  //         });
-  //       }
-  //       res.day = day;
-  //       next();
-  //     })
-  //     .catch(next);
-  // })
-
-  // .get((req, res) => {
-  //   res.json(serializeDay(res.day));
-  // })
 
   .put(bodyParser, (req, res, next) => {
     const { dayToUpdate } = req.body;
+
+    if (dayToUpdate.actual_hours > 24)
+      return res
+        .status(400)
+        .json({ error: `Please enter a number less than 24.` });
 
     const numberOfValues = Object.values(dayToUpdate).filter(Boolean).length;
     if (numberOfValues === 0) {
@@ -204,25 +190,6 @@ practicelogRouter
       })
       .catch(next);
   });
-
-// async function checkGoalExists(req, res, next) {
-//   try {
-//     console.log("went to async");
-//     const goal = await PracticeLogService.getMostRecentGoalId(
-//       req.app.get("db"),
-//       req.user.id
-//     );
-
-//     if (goal_id === null)
-//       return res.status(404).json({
-//         error: `goal doesn't exist`,
-//       });
-
-//     next();
-//   } catch (error) {
-//     next(error);
-//   }
-// }
 
 const serializeDay = (day) => ({
   id: day.id,
