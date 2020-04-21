@@ -4,8 +4,6 @@ const morgan = require("morgan");
 const cors = require("cors");
 const helmet = require("helmet");
 const { NODE_ENV } = require("./config");
-//const validateBearerToken = require("./validate-bearer-token");
-//const errorHandler = require("./error-handler");
 const authRouter = require("./auth/auth-router");
 const practicelogRouter = require("./prlog/practicelog-router");
 const usersRouter = require("./users/users-router");
@@ -17,7 +15,7 @@ app.use(
     skip: () => NODE_ENV === "test",
   })
 );
-app.use(cors({ origin: CLIENT_ORIGIN }));
+app.use(cors({ CLIENT_ORIGIN }));
 app.use(helmet());
 
 app.use("/api/prlog", practicelogRouter);
