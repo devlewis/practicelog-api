@@ -1,6 +1,4 @@
-const path = require("path");
 const express = require("express");
-const xss = require("xss");
 const { requireAuth } = require("../middleware/jwt-auth");
 const logger = require("../logger");
 const PracticeLogService = require("./practicelog-service");
@@ -70,11 +68,7 @@ practicelogRouter
           });
         }
 
-        return PracticeLogService.insertDays(
-          //if (error) return res.status(400).send(error); //const error = getNoteValidationError(newNote);
-          req.app.get("db"),
-          newDays
-        )
+        return PracticeLogService.insertDays(req.app.get("db"), newDays)
           .then((newDays) => {
             logger.info(`days created.`);
             res.status(201).json(newDays.map(serializeDay));

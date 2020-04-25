@@ -39,7 +39,6 @@ const PracticeLogService = {
   },
 
   insertDays(knex, newDays) {
-    //return knex.raw () INSERT COLUMN("day_date")
     return knex
       .insert(newDays)
       .into("days")

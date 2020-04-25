@@ -15,7 +15,13 @@ app.use(
     skip: () => NODE_ENV === "test",
   })
 );
-app.use(cors({ CLIENT_ORIGIN }));
+
+app.use(
+  cors({
+    origin: CLIENT_ORIGIN,
+  })
+);
+
 app.use(helmet());
 
 app.use("/api/prlog", practicelogRouter);
@@ -32,4 +38,5 @@ app.use(function errorHandler(error, req, res, next) {
   }
   res.status(500).json(response);
 });
+
 module.exports = app;

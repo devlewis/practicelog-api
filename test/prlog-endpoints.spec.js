@@ -81,12 +81,6 @@ describe("Prlog Endpoints", function () {
           expect(res.body[0]).to.have.property("id");
           expect(res.body.length).to.eql(3);
           expect(res.body[1].goal_id).to.eql(5);
-
-          // const expectedDate = new Date().toLocaleString("en", {
-          //   timeZone: "UTC",
-          // });
-          // const actualDate = new Date(res.body[0].day_date).toLocaleString();
-          // expect(actualDate).to.eql(expectedDate);
         })
         .expect((res) =>
           db
@@ -97,11 +91,6 @@ describe("Prlog Endpoints", function () {
             .then((row) => {
               expect(row.goal_id).to.eql(5);
               expect(row.user_id).to.eql(testUser.id);
-              // const expectedDate = new Date().toLocaleString("en", {
-              //   timeZone: "UTC",
-              // });
-              // const actualDate = new Date(row.day_date).toLocaleString();
-              // expect(actualDate).to.eql(expectedDate);
             })
         );
     });
@@ -147,12 +136,6 @@ describe("Prlog Endpoints", function () {
           expect(res.body[0]).to.have.property("id");
           expect(res.body.length).to.eql(2);
           expect(res.body[1].goal_id).to.eql(2);
-
-          // const expectedDate = new Date().toLocaleString("en", {
-          //   timeZone: "UTC",
-          // });
-          // const actualDate = new Date(res.body[0].day_date).toLocaleString();
-          // expect(actualDate).to.eql(expectedDate);
         })
         .expect((res) =>
           db
@@ -163,11 +146,6 @@ describe("Prlog Endpoints", function () {
             .then((row) => {
               expect(row.goal_id).to.eql(2);
               expect(row.user_id).to.eql(testUser.id);
-              // const expectedDate = new Date().toLocaleString("en", {
-              //   timeZone: "UTC",
-              // });
-              // const actualDate = new Date(row.day_date).toLocaleString();
-              // expect(actualDate).to.eql(expectedDate);
             })
         );
     });
@@ -221,14 +199,6 @@ describe("Prlog Endpoints", function () {
           expect(res.body[0]).to.have.property("id");
           expect(res.body.length).to.eql(2);
           expect(res.body[1].goal_id).to.eql(2);
-          // console.log(new Date(res.body[0].day_date));
-          // const expectedDate = new Date(
-          //   "2029-01-22T16:28:32.615Z"
-          // ).toLocaleString("en", {
-          //   timeZone: "UTC",
-          // });
-          // const actualDate = new Date(res.body[0].day_date).toLocaleString();
-          // expect(actualDate).to.eql(expectedDate);
         })
         .expect((res) =>
           db
@@ -239,12 +209,6 @@ describe("Prlog Endpoints", function () {
             .then((row) => {
               expect(row.goal_id).to.eql(2);
               expect(row.user_id).to.eql(testUser.id);
-              // const expectedDate = new Date().toLocaleString("en", {
-              //   timeZone: "UTC",
-              // });
-
-              // const actualDate = new Date(row.day_date).toLocaleString();
-              // expect(actualDate).to.eql(expectedDate);
             })
         );
     });
