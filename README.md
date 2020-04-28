@@ -8,13 +8,6 @@ This app is for logging hours and basic details for your daily practice. Users m
 
 ## Run Practice Log API in a local development environment
 
-### Prerequisites
-
-* You will need these programs installed
-  * [Git](https://git-scm.com/)
-  * [Node.js](https://nodejs.org/en/)
-  * [npm](https://www.npmjs.com/)
-
 ### Installation
 
 * Clone this repository:
@@ -35,10 +28,7 @@ This app is for logging hours and basic details for your daily practice. Users m
 
 ## API Overview
 
-*** Note: all requests to protected endpoints must contain an Authorization header with a valid JWT string:
-    
-
-* e.g. using the Fetch API:
+requests to protected endpoints must contain an Authorization header with a valid JWT string:
 
   ```
   fetch(PATH, {
@@ -65,7 +55,7 @@ This app is for logging hours and basic details for your daily practice. Users m
   }
   ```
 
-#### GET /api/users/
+#### GET /api/users
 
 * Provides the username for a given user id
   * E.g. populate the username of the author of a review (reviews contain reviewer ids, but not usernames)
