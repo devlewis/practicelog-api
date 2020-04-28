@@ -206,24 +206,21 @@ ___
 
 ##### Live App Screenshots
 
-![Screen Shot 2020-04-25 at 4.57.52 PM](/Users/Devree/Library/Application Support/typora-user-images/Screen Shot 2020-04-25 at 4.57.52 PM.png)
-
-![Screen Shot 2020-04-25 at 4.59.01 PM](/Users/Devree/Library/Application Support/typora-user-images/Screen Shot 2020-04-25 at 4.59.01 PM.png)![Screen Shot 2020-04-25 at 4.59.35 PM](/Users/Devree/Library/Application Support/typora-user-images/Screen Shot 2020-04-25 at 4.59.35 PM.png)
-
-![Screen Shot 2020-04-25 at 4.59.35 PM](/Users/Devree/Library/Application Support/typora-user-images/Screen Shot 2020-04-25 at 5.03.59 PM.png)
+![](src/images/Screen%20Shot%202020-04-25%20at%204.57.52%20PM.png) 
+----------
+![](src/images/Screen%20Shot%202020-04-25%20at%204.59.01%20PM.png) 
+----------
+![](src/images/Screen%20Shot%202020-04-25%20at%204.59.35%20PM.png) 
+----------
+![](src/images/Screen%20Shot%202020-04-25%20at%205.03.59%20PM.png)
 
 ## Technology
-
-### Back End
 
 * [Node](https://nodejs.org/en/) and [Express](https://expressjs.com/)
   * JWT authentication
   * Mocha test framework and Chai assertion library, Supertest 
   * Morgan, helmet 
 * PSQL
-
-### Production
-
 * [Heroku](https://www.heroku.com/) Cloud Application Platform
 
 #####  
