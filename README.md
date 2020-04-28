@@ -141,9 +141,10 @@ ___
       repertoire: { type: string, required: false },
       actual_hours: { type: DECIMAL, default: 0.00, required: true},
       touched: {type: boolean, default: false, required: true},
-      goal_id: { ref: 'goals', required: true}
+      goal_id: { ref: 'goals', required: true},
       user_id: { ref: 'users', required: true },
-      goal_hours: {type: DECIMAL, required: true}
+      goal_hours: {type: DECIMAL, required: true},
+  }
   ```
 
   -----------------
