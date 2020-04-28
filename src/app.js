@@ -28,10 +28,6 @@ app.use("/api/prlog", practicelogRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/users", usersRouter);
 
-// app.get("/*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "build", "index.html"));
-// });
-
 app.use(function errorHandler(error, req, res, next) {
   let response;
   if (NODE_ENV === "production") {
