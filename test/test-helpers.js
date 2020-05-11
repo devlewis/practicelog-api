@@ -248,14 +248,10 @@ module.exports = {
   makeUsersArray,
   makeGoalsArray,
   makeExpectedGoal,
-  // makeExpectedArticleComments,
-  // makeMaliciousArticle,
   makeDaysArray,
-
   makePrlogFixtures,
   cleanTables,
   seedPrlogTables,
-  // seedMaliciousArticle,
   makeAuthHeader,
   seedUsers,
 };
