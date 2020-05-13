@@ -23,9 +23,6 @@ describe("Prlog Endpoints", function () {
 
   describe(`GET /api/prlog/goal`, () => {
     context(`Given no goals`, () => {
-      beforeEach("insert goals", () =>
-        helpers.seedPrlogTables(db, testUsers, testGoals, testDays)
-      );
       it(`responds with 200 and an empty list`, () => {
         return supertest(app)
           .get("/api/prlog/goal")

@@ -3843,3 +3843,21 @@
 {"message":"goal with 1 updated.","level":"info"}
 {"message":"days fetched.","level":"info"}
 {"message":"user with id 1 created.","level":"info"}
+{"message":"goal_id  null retrieved.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal with 1 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal with 1 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"user with id 1 created.","level":"info"}
+{"message":"goal_id  null retrieved.","level":"info"}
+{"message":"goal_id  3 retrieved.","level":"info"}
+{"message":"goal created.","level":"info"}
+{"message":"days created.","level":"info"}
+{"message":"goal with 1 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"goal with 1 updated.","level":"info"}
+{"message":"days fetched.","level":"info"}
+{"message":"user with id 1 created.","level":"info"}
