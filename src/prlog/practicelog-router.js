@@ -123,7 +123,6 @@ practicelogRouter
 practicelogRouter
   .route("/allgoals")
   .all(requireAuth)
-
   .get(bodyParser, (req, res) => {
     PracticeLogService.getAllGoals(req.app.get("db"), req.user.id).then(
       (goals) => {
