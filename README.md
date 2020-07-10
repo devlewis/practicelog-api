@@ -206,13 +206,13 @@ ___
 
 ##### Live App Screenshots
 
-![](src/images/Screen%20Shot%202020-04-25%20at%204.57.52%20PM.png) 
+![](assets/images/Screen%20Shot%202020-04-25%20at%204.57.52%20PM.png) 
 ----------
-![](src/images/Screen%20Shot%202020-04-25%20at%204.59.01%20PM.png) 
+![](assets/images/Screen%20Shot%202020-04-25%20at%204.59.01%20PM.png) 
 ----------
-![](src/images/Screen%20Shot%202020-04-25%20at%204.59.35%20PM.png) 
+![](assets/images/Screen%20Shot%202020-04-25%20at%204.59.35%20PM.png) 
 ----------
-![](src/images/Screen%20Shot%202020-04-25%20at%205.03.59%20PM.png)
+![](assets/images/Screen%20Shot%202020-04-25%20at%205.03.59%20PM.png)
 
 ## Technology
 
