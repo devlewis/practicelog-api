@@ -1,7 +1,11 @@
 const AuthService = require("../auth/auth-service");
+const logger = require("../logger");
 
 function requireAuth(req, res, next) {
+  logger.info(`received and reading the JWT!`);
   const authToken = req.get("Authorization") || "";
+
+  logger.info(`authToken: ${authToken}`);
 
   let bearerToken;
   if (!authToken.toLowerCase().startsWith("bearer ")) {
@@ -10,14 +14,15 @@ function requireAuth(req, res, next) {
     bearerToken = authToken.slice(7, authToken.length);
   }
 
+  logger.info(`bearerToken: ${bearerToken}`);
+
   try {
     const payload = AuthService.verifyJwt(bearerToken);
-
+    logger.info(`payload: ${payload}`);
     AuthService.getUserWithUserName(req.app.get("db"), payload.sub)
       .then((user) => {
         if (!user)
           return res.status(401).json({ error: "Unauthorized request" });
-
         req.user = user;
         next();
       })

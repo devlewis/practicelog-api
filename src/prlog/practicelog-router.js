@@ -91,7 +91,7 @@ practicelogRouter
         } else {
           return PracticeLogService.getGoalById(req.app.get("db"), goal_id)
             .then((goal) => {
-              return res.status(201).json(serializeGoal(goal));
+              return res.status(200).json(serializeGoal(goal));
             })
             .catch((error) => console.log(error));
         }
@@ -126,7 +126,7 @@ practicelogRouter
   .get(bodyParser, (req, res) => {
     PracticeLogService.getAllGoals(req.app.get("db"), req.user.id).then(
       (goals) => {
-        return res.status(201).json(goals.map(serializeAllGoals));
+        return res.status(200).json(goals.map(serializeAllGoals));
       }
     );
   });
@@ -143,7 +143,7 @@ practicelogRouter
         return PracticeLogService.getAllDays(req.app.get("db"), goalId)
           .then((days) => {
             logger.info(`days fetched.`);
-            res.status(201).json(days.map(serializeDay));
+            res.status(200).json(days.map(serializeDay));
           })
           .catch((error) => console.log(error));
       })
@@ -156,7 +156,6 @@ practicelogRouter
 
   .put(bodyParser, (req, res, next) => {
     const { dayToUpdate } = req.body;
-
     if (dayToUpdate.actual_hours > 24)
       return res
         .status(400)

@@ -10,5 +10,5 @@ module.exports = {
     process.env.TEST_DATABASE_URL ||
     "postgresql://postgres@localhost/prlog_test",
   JWT_SECRET: process.env.JWT_SECRET || "secret",
-  JWT_EXPIRY: process.env.JWT_EXPIRY || "5m",
+  JWT_EXPIRY: process.env.JWT_EXPIRY || "15m",
 };

@@ -8,7 +8,7 @@ const UsersService = {
     return db("users")
       .where({ user_name })
       .first()
-      .then(user => !!user);
+      .then((user) => !!user);
   },
   insertUser(db, newUser) {
     return db
@@ -32,16 +32,18 @@ const UsersService = {
     }
     return null;
   },
+
   hashPassword(password) {
     return bcrypt.hash(password, 12);
   },
+
   serializeUser(user) {
     return {
       id: user.id,
       user_name: xss(user.user_name),
-      date_created: new Date(user.date_created)
+      date_created: new Date(user.date_created),
     };
-  }
+  },
 };
 
 module.exports = UsersService;
